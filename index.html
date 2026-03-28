@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Divin3 Tech LLC - Expert GRC Security Consulting | ISO 27001, SOC 2, NIST, & CMMC Compliance | Professional gap assessments and audit readiness for growing companies">
+    <meta name="description" content="Divin3 Tech LLC - Expert Security GRC Consulting | ISO 27001, SOC 2, NIST, & CMMC Compliance | Professional gap assessments and audit readiness for growing companies">
     <meta name="keywords" content="ISO 27001, SOC 2, GRC consulting, compliance, security audit, gap assessment, CISSP, information security, NIST 800, and CMMC 2.0 ">
-    <title>Divin3 Tech | GRC Security Consulting</title>
+    <title>Divin3 Tech | Security GRC Consulting</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --midnight: #0A0E27;
@@ -28,9 +24,7 @@
             --white: #FFFFFF;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -40,14 +34,13 @@
             overflow-x: hidden;
         }
 
-        /* Typography */
         h1, h2, h3 {
             font-family: 'Crimson Pro', serif;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
 
-        /* Navigation */
+        /* ===== NAVIGATION ===== */
         nav {
             position: fixed;
             top: 0;
@@ -60,35 +53,27 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        nav .container {
+        .nav-inner {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.25rem 3rem;
+            padding: 0.25rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-image {
-            height: 60px !important;
-            width: auto;
-            display: block;
-        }
+        .logo a { display: block; }
+        .logo img { height: 60px; width: auto; display: block; }
 
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
             gap: 2.5rem;
+            align-items: center;
         }
 
         nav a {
@@ -111,20 +96,35 @@
             transition: width 0.3s ease;
         }
 
-        nav a:hover {
-            color: var(--gold);
+        nav a:hover { color: var(--gold); }
+        nav a:hover::after { width: 100%; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
         }
 
-        nav a:hover::after {
-            width: 100%;
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--midnight);
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
-        /* Hero Section */
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 50%, var(--slate) 100%);
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
             position: relative;
             overflow: hidden;
             padding: 8rem 3rem 4rem;
@@ -133,37 +133,23 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
+            inset: 0;
+            background-image:
                 radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(184, 115, 51, 0.08) 0%, transparent 50%);
             pointer-events: none;
         }
 
-        .hero .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .hero .container { position: relative; z-index: 1; }
 
         .hero-content {
             max-width: 800px;
             animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .hero-eyebrow {
@@ -177,7 +163,7 @@
         }
 
         .hero h1 {
-            font-size: 5rem;
+            font-size: clamp(2.2rem, 5vw, 5rem);
             line-height: 1.1;
             color: var(--white);
             margin-bottom: 2rem;
@@ -185,7 +171,7 @@
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: var(--sage);
             margin-bottom: 3rem;
             line-height: 1.6;
@@ -195,6 +181,7 @@
         .cta-group {
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap;
             animation: fadeInUp 1s ease-out 0.5s both;
         }
 
@@ -212,6 +199,7 @@
             font-family: 'DM Sans', sans-serif;
             position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .btn-primary::before {
@@ -226,10 +214,7 @@
             z-index: -1;
         }
 
-        .btn-primary:hover::before {
-            left: 0;
-        }
-
+        .btn-primary:hover::before { left: 0; }
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 20px 40px rgba(212, 175, 55, 0.3);
@@ -247,6 +232,7 @@
             display: inline-block;
             transition: all 0.3s ease;
             font-family: 'DM Sans', sans-serif;
+            text-align: center;
         }
 
         .btn-secondary:hover {
@@ -255,20 +241,10 @@
             transform: translateY(-3px);
         }
 
-        /* Section Styling */
-        section {
-            padding: 8rem 3rem;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            max-width: 700px;
-            margin-bottom: 5rem;
-        }
+        /* ===== SHARED SECTION STYLES ===== */
+        section { padding: 8rem 3rem; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-header { max-width: 700px; margin-bottom: 5rem; }
 
         .section-eyebrow {
             font-size: 0.85rem;
@@ -280,7 +256,7 @@
         }
 
         .section-title {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             color: var(--midnight);
             line-height: 1.2;
             margin-bottom: 1.5rem;
@@ -292,14 +268,12 @@
             line-height: 1.7;
         }
 
-        /* Services Section */
-        #services {
-            background: var(--ice);
-        }
+        /* ===== SERVICES ===== */
+        #services { background: var(--ice); }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
             gap: 3rem;
         }
 
@@ -314,18 +288,13 @@
         .service-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 0;
+            top: 0; left: 0;
+            width: 4px; height: 0;
             background: var(--gold);
             transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .service-card:hover::before {
-            height: 100%;
-        }
-
+        .service-card:hover::before { height: 100%; }
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(10, 14, 39, 0.12);
@@ -341,22 +310,9 @@
             margin-bottom: 1rem;
         }
 
-        .service-card h3 {
-            font-size: 1.8rem;
-            color: var(--midnight);
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card > p {
-            color: var(--steel);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .service-card ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
+        .service-card h3 { font-size: 1.8rem; color: var(--midnight); margin-bottom: 1.5rem; }
+        .service-card > p { color: var(--steel); margin-bottom: 2rem; font-size: 1.05rem; }
+        .service-card ul { list-style: none; margin-bottom: 2rem; }
 
         .service-card li {
             padding: 0.7rem 0;
@@ -366,41 +322,17 @@
         }
 
         .service-card li::before {
-            content: '→';
+            content: '\2192';
             position: absolute;
             left: 0;
             color: var(--gold);
             font-weight: bold;
         }
 
-        .service-pricing {
-            font-family: 'Crimson Pro', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--midnight);
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(10, 14, 39, 0.1);
-        }
-
-        .service-timeline {
-            color: var(--steel);
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-
-        /* Why Section */
-        #why {
-            background: var(--midnight);
-            color: var(--white);
-        }
-
-        #why .section-title {
-            color: var(--white);
-        }
-
-        #why .section-subtitle {
-            color: var(--sage);
-        }
+        /* ===== WHY US ===== */
+        #why { background: var(--midnight); color: var(--white); }
+        #why .section-title { color: var(--white); }
+        #why .section-subtitle { color: var(--sage); }
 
         .why-grid {
             display: grid;
@@ -410,39 +342,83 @@
 
         .why-item {
             padding: 3rem;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(184, 115, 51, 0.03) 100%);
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
             border: 1px solid rgba(212, 175, 55, 0.2);
             transition: all 0.4s ease;
         }
 
         .why-item:hover {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 115, 51, 0.06) 100%);
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
             border-color: var(--gold);
             transform: translateX(10px);
         }
 
-        .why-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        .why-icon { font-size: 3rem; margin-bottom: 1.5rem; display: block; }
+        .why-item h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 1rem; }
+        .why-item p { color: #B8C8CF; font-size: 1.1rem; line-height: 1.8; }
+
+        /* ===== PROCESS ===== */
+        #process { background: var(--ice); }
+        .process-timeline { position: relative; padding: 2rem 0; }
+
+        .process-step {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 4rem;
+            margin-bottom: 5rem;
+            position: relative;
         }
 
-        .why-item h3 {
-            font-size: 1.8rem;
+        .process-step:last-child { margin-bottom: 0; }
+
+        .step-number {
+            font-family: 'Crimson Pro', serif;
+            font-size: 5rem;
+            font-weight: 300;
             color: var(--gold);
-            margin-bottom: 1rem;
+            line-height: 1;
         }
 
-        .why-item p {
-            color: var(--sage);
-            font-size: 1.1rem;
-            line-height: 1.8;
+        .step-content h3 { font-size: 2rem; color: var(--midnight); margin-bottom: 1rem; }
+        .step-content p { font-size: 1.15rem; color: var(--steel); line-height: 1.8; }
+
+        /* ===== CREDENTIALS ===== */
+        #credentials { background: var(--midnight); color: var(--white); }
+        #credentials .section-title { color: var(--white); }
+        #credentials .section-subtitle { color: var(--sage); }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+            gap: 2rem;
         }
 
-        /* Portfolio Section */
+        /* Force 5-per-row on wide screens to make 10 cards = 2 rows of 5 */
+        @media (min-width: 1200px) {
+            .credentials-grid { grid-template-columns: repeat(5, 1fr); }
+        }
+
+        .credential-card {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .credential-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .credential-icon { font-size: 3.5rem; margin-bottom: 1.5rem; display: block; }
+        .credential-card h3 { font-size: 1.5rem; color: var(--gold); margin-bottom: 0.8rem; }
+        .credential-card p { color: #B8C8CF; font-size: 0.95rem; }
+
+        /* ===== PORTFOLIO ===== */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
             gap: 3rem;
         }
 
@@ -458,12 +434,7 @@
             box-shadow: 0 20px 40px rgba(10, 14, 39, 0.1);
         }
 
-        .portfolio-tags {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
+        .portfolio-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
 
         .tag {
             background: var(--gold);
@@ -475,285 +446,332 @@
             text-transform: uppercase;
         }
 
-        .portfolio-card h3 {
-            font-size: 1.8rem;
-            color: var(--midnight);
-            margin-bottom: 1.5rem;
+        .portfolio-card h3 { font-size: 1.8rem; color: var(--midnight); margin-bottom: 1.5rem; }
+        .portfolio-detail { margin-bottom: 1.5rem; }
+        .portfolio-detail strong { color: var(--gold); display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .portfolio-detail p { color: var(--slate); line-height: 1.7; }
+
+        /* ===== CONTACT ===== */
+        .contact-section {
+            background-color: var(--midnight);
+            color: var(--white);
+            padding: 8rem 3rem;
         }
 
-        .portfolio-detail {
-            margin-bottom: 1.5rem;
-        }
+        .contact-wrapper { max-width: 1200px; margin: 0 auto; }
+        .contact-header { text-align: center; margin-bottom: 4rem; }
 
-        .portfolio-detail strong {
+        .contact-eyebrow {
             color: var(--gold);
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .portfolio-detail p {
-            color: var(--slate);
-            line-height: 1.7;
-        }
-
-        /* Process Section */
-        #process {
-            background: var(--ice);
-        }
-
-        .process-timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .process-step {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: 4rem;
-            margin-bottom: 5rem;
-            position: relative;
-        }
-
-        .process-step:last-child {
-            margin-bottom: 0;
-        }
-
-        .step-number {
-            font-family: 'Crimson Pro', serif;
-            font-size: 5rem;
-            font-weight: 300;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .step-content h3 {
-            font-size: 2rem;
-            color: var(--midnight);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
-        .step-content p {
-            font-size: 1.15rem;
-            color: var(--steel);
-            line-height: 1.8;
-        }
-
-        /* Credentials Section */
-        #credentials {
-            background: var(--midnight);
-            color: var(--white);
-        }
-
-        #credentials .section-title {
-            color: var(--white);
-        }
-
-        #credentials .section-subtitle {
-            color: var(--sage);
-        }
-
-        .credentials-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .credential-card {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
-            border: 1px solid rgba(10, 14, 39, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        .credential-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-        }
-
-        .credential-icon {
-            font-size: 3.5rem;
+        .contact-heading {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
             margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .credential-card h3 {
-            font-size: 1.5rem;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-        }
-
-        .credential-card p {
-            color: var(--sage);
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        #contact {
-            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
-            color: var(--white);
-            text-align: center;
-        }
-
-        #contact .section-title {
-            color: var(--white);
-        }
-
-        #contact .section-subtitle {
-            color: var(--sage);
-        }
-
-        .contact-content {
-            max-width: 700px;
-            margin: 4rem auto 0;
-        }
-
-        .contact-email {
-            font-size: 2rem;
-            color: var(--gold);
-            text-decoration: none;
-            margin: 2rem 0;
-            display: inline-block;
-            transition: all 0.3s ease;
             font-family: 'Crimson Pro', serif;
         }
 
-        .contact-email:hover {
-            color: var(--copper);
-            transform: translateY(-3px);
+        .contact-sub {
+            font-size: 1.2rem;
+            color: var(--sage);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
-        .contact-note {
-            font-size: 1.15rem;
-            color: var(--sage);
-            margin: 2rem 0 3rem;
-            line-height: 1.8;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: start;
         }
 
-        /* Footer */
-        footer {
-            background: var(--midnight);
-            color: var(--sage);
-            text-align: center;
+        .contact-info {
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
             padding: 3rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 2px;
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            text-align: center;
         }
 
-        footer p {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+        .contact-info h3 { font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold); }
+        .contact-info-label { color: var(--sage); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .contact-info-item { margin-bottom: 2rem; }
+        .contact-info a { color: var(--white); text-decoration: none; font-size: 1.1rem; }
+
+        .contact-form { display: grid; gap: 1.5rem; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
-        .footer-highlight {
-            color: var(--gold);
-            font-weight: 600;
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            width: 100%;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 4rem;
-            }
-
-            .section-title {
-                font-size: 3rem;
-            }
-
-            .why-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+        .contact-form button {
+            background: var(--gold);
+            color: var(--midnight);
+            padding: 1.2rem;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
+        .contact-form button:hover {
+            background: var(--copper);
+            transform: translateY(-2px);
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold);
+            padding: 3rem;
+            text-align: center;
+            border-radius: 2px;
+        }
+
+        .success-message h3 { color: var(--gold); margin-bottom: 1rem; }
+
+        /* ===== RESOURCE DOWNLOAD ===== */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .resource-card {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, var(--midnight) 0%, var(--deep-navy) 100%);
+            border: 2px solid rgba(212, 175, 55, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .resource-card.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .resource-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+        .resource-card h3 { font-size: 1.3rem; color: var(--gold); margin-bottom: 0.8rem; }
+        .resource-card p { color: #B8C8CF; font-size: 0.95rem; line-height: 1.6; }
+
+        .email-capture {
+            max-width: 600px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .email-capture-label {
+            color: var(--sage);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-capture-label strong { color: var(--gold); }
+
+        .email-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .email-form input[type="email"] {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 1rem 1.25rem;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+        }
+
+        .email-form button {
+            background: var(--gold);
+            color: var(--midnight);
+            padding: 1rem 2rem;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .email-form button:hover {
+            background: var(--copper);
+            transform: translateY(-2px);
+        }
+
+        .contact-direct {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-direct .contact-info {
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* ===== RESPONSIVE — TABLET LANDSCAPE (≤1024px) ===== */
+        @media (max-width: 1024px) {
+            .nav-inner { padding: 0.25rem 2rem; }
+            .nav-links { gap: 1.5rem; }
+            section { padding: 6rem 2rem; }
+            .section-header { margin-bottom: 3.5rem; }
+            .why-grid { gap: 2rem; }
+            .process-step { gap: 2.5rem; }
+            .contact-section { padding: 6rem 2rem; }
+            .contact-grid { gap: 2.5rem; }
+            .credential-card { padding: 2rem 1.5rem; }
+        }
+
+        /* ===== RESPONSIVE — TABLET PORTRAIT / LARGE PHONE (≤768px) ===== */
         @media (max-width: 768px) {
-            nav .container {
-                padding: 1.5rem;
+            .nav-inner { padding: 0.25rem 1.5rem; }
+
+            .hamburger { display: flex; }
+
+            .nav-links {
+                display: none;
                 flex-direction: column;
-                gap: 1rem;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid rgba(10, 14, 39, 0.1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                padding: 1rem 0;
+                gap: 0;
+                text-align: center;
             }
 
-            nav ul {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-links.open { display: flex; }
+
+            .nav-links li {
+                padding: 0.85rem 1.5rem;
+                border-bottom: 1px solid rgba(10, 14, 39, 0.05);
             }
 
-            .hero {
-                padding: 6rem 1.5rem 3rem;
-            }
+            .nav-links li:last-child { border-bottom: none; }
 
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+            .hero { padding: 7rem 1.5rem 3rem; min-height: auto; }
+            .cta-group { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; }
 
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
+            section { padding: 4rem 1.5rem; }
+            .section-header { margin-bottom: 2.5rem; }
+            .section-subtitle { font-size: 1.1rem; }
 
-            .cta-group {
-                flex-direction: column;
-            }
+            .service-card { padding: 2rem; }
+            .service-number { font-size: 3rem; }
+            .service-card h3 { font-size: 1.5rem; }
 
-            section {
-                padding: 4rem 1.5rem;
-            }
+            .why-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .why-item { padding: 2rem; }
+            .why-item h3 { font-size: 1.5rem; }
 
-            .section-title {
-                font-size: 2.2rem;
-            }
+            .process-step { grid-template-columns: 70px 1fr; gap: 1.5rem; margin-bottom: 3rem; }
+            .step-number { font-size: 3.5rem; }
+            .step-content h3 { font-size: 1.5rem; }
 
-            .services-grid,
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
+            .credentials-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .credential-card { padding: 1.5rem 1rem; }
+            .credential-card h3 { font-size: 1.15rem; }
+            .credential-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-            .process-step {
-                grid-template-columns: 80px 1fr;
-                gap: 2rem;
-                margin-bottom: 3rem;
-            }
+            .portfolio-card { padding: 2rem; }
+            .portfolio-card h3 { font-size: 1.5rem; }
 
-            .step-number {
-                font-size: 3.5rem;
-            }
+            .contact-section { padding: 4rem 1.5rem; }
+            .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .contact-info { padding: 2rem; }
+            .form-row { grid-template-columns: 1fr; }
 
-            .credentials-grid {
-                grid-template-columns: 1fr;
-            }
+            .resource-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .resource-card { padding: 2rem 1.5rem; }
+            .email-form { flex-direction: column; }
+            .email-form button { width: 100%; }
+        }
 
-            .contact-email {
-                font-size: 1.5rem;
-            }
+        /* ===== RESPONSIVE — SMALL PHONE (≤480px) ===== */
+        @media (max-width: 480px) {
+            .hero { padding: 6rem 1rem 2.5rem; }
+            section { padding: 3rem 1rem; }
+            .contact-section { padding: 3rem 1rem; }
+            .service-card, .portfolio-card, .why-item, .contact-info { padding: 1.5rem; }
+            .credentials-grid { gap: 0.75rem; }
+            .credential-card { padding: 1.25rem 0.75rem; }
+            .credential-card h3 { font-size: 1rem; }
+            .credential-card p { font-size: 0.8rem; }
+            .credential-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+            .process-step { grid-template-columns: 1fr; gap: 0.5rem; }
+            .step-number { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
-    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background-color: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-        <div class="logo">
-            <a href="#">
-                <img src="Divin3TechLogo.jpg" alt="Divin3Tech Logo" style="height: 50px; width: auto; display: block;">
-            </a>
-        </div>  
-            <ul>
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">
+                <a href="#">
+                    <img src="Divin3TechLogo.png" alt="Divin3Tech Logo">
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
-                <li><a href="#why">Why Us</a></li> 
+                <li><a href="#why">Why Us</a></li>
                 <li><a href="#process">Our Process</a></li>
                 <li><a href="#credentials">Credentials</a></li>
                 <li><a href="#contact">Get Started</a></li>
             </ul>
+        </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-eyebrow">GRC Security Consulting</div>
+                <div class="hero-eyebrow">Security GRC Consulting</div>
                 <h1>Compliance Without the Theater</h1>
                 <p class="hero-subtitle">ISO 27001, SOC 2, NIST 800-171, and CMMC 2.0 expertise backed by 13 years of security operations. Real security, not checkbox consulting.</p>
                 <div class="cta-group">
-                    <a href="#contact" class="btn-primary">Free Consultation</a>
+                    <a href="#contact" class="btn-primary">Get Free Resources</a>
                     <a href="#services" class="btn-secondary">View Services</a>
                 </div>
             </div>
@@ -766,7 +784,7 @@
             <div class="section-header">
                 <div class="section-eyebrow">What We Offer</div>
                 <h2 class="section-title">Professional Services</h2>
-                <p class="section-subtitle">Comprehensive GRC consulting designed to get you audit-ready & compliant efficiently.</p>
+                <p class="section-subtitle">Comprehensive GRC consulting designed to get you compliant &amp; audit-ready efficiently.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
@@ -778,11 +796,9 @@
                         <li>Detailed gap analysis report</li>
                         <li>Risk-based prioritization</li>
                         <li>Phased remediation roadmap</li>
-                        <li>Executive presentation & Q&A</li>
+                        <li>Executive presentation &amp; Q&amp;A</li>
                     </ul>
-
                 </div>
-
                 <div class="service-card">
                     <div class="service-number">02</div>
                     <h3>SOC 2 Readiness Assessment</h3>
@@ -794,23 +810,19 @@
                         <li>Vendor risk analysis</li>
                         <li>Audit preparation guidance</li>
                     </ul>
-
                 </div>
-
                 <div class="service-card">
                     <div class="service-number">03</div>
                     <h3>Ongoing Advisory</h3>
                     <p>Continuous compliance support to maintain and strengthen your security program post-certification.</p>
                     <ul>
                         <li>Monthly compliance reviews</li>
-                        <li>Policy & procedure updates</li>
+                        <li>Policy &amp; procedure updates</li>
                         <li>Internal audit support</li>
                         <li>Evidence collection guidance</li>
                         <li>On-demand expert consultation</li>
                     </ul>
-
                 </div>
-
                 <div class="service-card">
                     <div class="service-number">04</div>
                     <h3>NIST 800-171 Compliance</h3>
@@ -818,25 +830,22 @@
                     <ul>
                         <li>110-control assessment</li>
                         <li>System Security Plan development</li>
-                        <li>Plan of Action & Milestones (POA&M)</li>
+                        <li>Plan of Action &amp; Milestones (POA&amp;M)</li>
                         <li>CUI protection implementation</li>
                         <li>Continuous monitoring setup</li>
                     </ul>
-
                 </div>
-
                 <div class="service-card">
                     <div class="service-number">05</div>
                     <h3>CMMC Certification Support</h3>
                     <p>Full-spectrum CMMC preparation for defense contractors securing DoD contracts at all levels.</p>
                     <ul>
-                        <li>Level 1 & 2 gap assessments</li>
+                        <li>Level 1 &amp; 2 gap assessments</li>
                         <li>Self-assessment support</li>
-                        <li>C3PAO preparation & readiness</li>
-                        <li>Implementation & remediation</li>
+                        <li>C3PAO preparation &amp; readiness</li>
+                        <li>Implementation &amp; remediation</li>
                         <li>Assessment observation support</li>
                     </ul>
-
                 </div>
             </div>
         </div>
@@ -875,20 +884,19 @@
         </div>
     </section>
 
-    
     <!-- Process Section -->
     <section id="process">
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">How It Works</div>
                 <h2 class="section-title">Our Process</h2>
-                <p class="section-subtitle">A systematic approach to get you from current state to audit-ready & compliant efficiently.</p>
+                <p class="section-subtitle">A systematic approach to get you from current state to audit-ready &amp; compliant efficiently.</p>
             </div>
             <div class="process-timeline">
                 <div class="process-step">
                     <div class="step-number">01</div>
                     <div class="step-content">
-                        <h3>Discovery & Scoping</h3>
+                        <h3>Discovery &amp; Scoping</h3>
                         <p>We start by understanding your business context, systems architecture, and compliance goals. This ensures the assessment is tailored to your actual needs—not generic templates.</p>
                     </div>
                 </div>
@@ -902,7 +910,7 @@
                 <div class="process-step">
                     <div class="step-number">03</div>
                     <div class="step-content">
-                        <h3>Gap Analysis & Prioritization</h3>
+                        <h3>Gap Analysis &amp; Prioritization</h3>
                         <p>Detailed mapping of gaps with risk-based prioritization. We distinguish between critical security issues requiring immediate attention and lower-priority documentation needs.</p>
                     </div>
                 </div>
@@ -929,7 +937,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Expertise</div>
-                <h2 class="section-title">Credentials & Background</h2>
+                <h2 class="section-title">Credentials &amp; Background</h2>
                 <p class="section-subtitle">Professional certifications and real-world experience that inform every engagement.</p>
             </div>
             <div class="credentials-grid">
@@ -956,7 +964,7 @@
                 <div class="credential-card">
                     <span class="credential-icon">🏅</span>
                     <h3>GRC Mastery</h3>
-                    <p>Governance, Risk, & Compliance</p>
+                    <p>Governance, Risk, &amp; Compliance</p>
                 </div>
                 <div class="credential-card">
                     <span class="credential-icon">🏅</span>
@@ -966,8 +974,8 @@
                 <div class="credential-card">
                     <span class="credential-icon">🎓</span>
                     <h3>Pennsylvania State University</h3>
-                    <p>BS in Security & Risk Management</p>
-                </div>                
+                    <p>BS in Security &amp; Risk Management</p>
+                </div>
                 <div class="credential-card">
                     <span class="credential-icon">⏱️</span>
                     <h3>13 Years</h3>
@@ -976,7 +984,7 @@
                 <div class="credential-card">
                     <span class="credential-icon">📊</span>
                     <h3>Splunk Expert</h3>
-                    <p>SIEM & Security Monitoring</p>
+                    <p>SIEM &amp; Security Monitoring</p>
                 </div>
                 <div class="credential-card">
                     <span class="credential-icon">🏢</span>
@@ -1016,7 +1024,6 @@
                         <p>Passed Type II audit with zero findings. Secured $2M enterprise contract within 2 months of certification.</p>
                     </div>
                 </div>
-
                 <div class="portfolio-card">
                     <div class="portfolio-tags">
                         <span class="tag">ISO 27001</span>
@@ -1037,7 +1044,6 @@
                         <p>Achieved certification in 7 months. Company successfully launched in Germany and UK markets on schedule.</p>
                     </div>
                 </div>
-
                 <div class="portfolio-card">
                     <div class="portfolio-tags">
                         <span class="tag">ISO 27001</span>
@@ -1058,7 +1064,6 @@
                         <p>Achieved both certifications. 30% cost savings versus separate compliance efforts. Expanded into enterprise healthcare market.</p>
                     </div>
                 </div>
-
                 <div class="portfolio-card">
                     <div class="portfolio-tags">
                         <span class="tag">CMMC 2.0</span>
@@ -1072,7 +1077,7 @@
                     </div>
                     <div class="portfolio-detail">
                         <strong>Solution</strong>
-                        <p>Comprehensive NIST 800-171 gap assessment identifying 47 control deficiencies. Built 6-month remediation plan with POA&M. Prepared organization for C3PAO assessment.</p>
+                        <p>Comprehensive NIST 800-171 gap assessment identifying 47 control deficiencies. Built 6-month remediation plan with POA&amp;M. Prepared organization for C3PAO assessment.</p>
                     </div>
                     <div class="portfolio-detail">
                         <strong>Result</strong>
@@ -1084,31 +1089,78 @@
     </section>
 
     <!-- Contact Section -->
-
-    <section id="contact" style="background-color: var(--midnight); color: var(--white); padding: 8rem 3rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 4rem;">
-                <div style="color: var(--gold); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.9rem; margin-bottom: 1rem;">Let's Connect</div>
-                <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-family: 'Crimson Pro', serif;">Ready to Get Started?</h2>
-                <p style="font-size: 1.2rem; color: var(--sage); max-width: 700px; margin: 0 auto;">Schedule a consultation or send us a message to discuss your compliance needs.</p>
+    <section id="contact" class="contact-section">
+        <div class="contact-wrapper">
+            <div class="contact-header">
+                <div class="contact-eyebrow">Free Resources</div>
+                <h2 class="contact-heading">Download a Free Compliance Checklist</h2>
+                <p class="contact-sub">Choose a resource below and we'll send it straight to your inbox. No strings attached.</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start;">
-                <div style="background: rgba(255,255,255,0.03); padding: 3rem; border-radius: 2px; border: 1px solid rgba(212, 175, 55, 0.1);">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--gold);">Direct Contact</h3>
-                    
-                    <div style="margin-bottom: 2rem;">
-                        <p style="color: var(--sage); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem;">Email Us</p>
-                        <a href="mailto:consulting@divin3tech.com" style="color: var(--white); text-decoration: none; font-size: 1.1rem; border-bottom: 1px solid var(--gold);">consulting@divin3tech.com</a>
-                    </div>
+            <div class="resource-grid">
+                <div class="resource-card" onclick="selectResource(this, 'soc2')" data-resource="soc2">
+                    <span class="resource-icon">🛡️</span>
+                    <h3>SOC 2 Readiness Checklist</h3>
+                    <p>A practical walkthrough of Trust Service Criteria with key controls and evidence you'll need for a successful audit.</p>
+                </div>
+                <div class="resource-card" onclick="selectResource(this, 'cmmc')" data-resource="cmmc">
+                    <span class="resource-icon">🎖️</span>
+                    <h3>CMMC Self-Assessment Guide</h3>
+                    <p>Evaluate your current CMMC readiness with this structured assessment covering Level 1 and Level 2 practices.</p>
+                </div>
+                <div class="resource-card" onclick="selectResource(this, 'iso')" data-resource="iso">
+                    <span class="resource-icon">📋</span>
+                    <h3>ISO 27001 Gap Assessment Checklist</h3>
+                    <p>Map your security posture against all 93 Annex A controls with prioritization guidance for each gap.</p>
+                </div>
+            </div>
 
-                    <div style="margin-bottom: 2rem;">
-                        <p style="color: var(--sage); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 0.5rem;">Call Us</p>
-                        <a href="tel:7703333333" style="color: var(--white); text-decoration: none; font-size: 1.1rem;">770-333-3333</a>
-                    </div>
+            <div id="emailCapture" class="email-capture" style="display: none;">
+                <p class="email-capture-label">Enter your email to receive the <strong id="selectedResourceName"></strong></p>
 
+                <!-- ============================================================
+                     HUBSPOT INTEGRATION
+                     ============================================================
+                     To connect this to HubSpot:
+
+                     1. Create a form in HubSpot (Marketing > Forms) with these fields:
+                        - Email (required)
+                        - A custom field for "resource_type" (hidden, single-line text)
+
+                     2. Replace YOUR_PORTAL_ID and YOUR_FORM_ID below with your actual values
+                        from Settings > Account Setup > Account Defaults > Portal ID
+                        and from your form's embed code.
+
+                     3. Uncomment the HubSpot script tag and the submitToHubSpot function.
+
+                     4. Set up a HubSpot workflow to email the correct resource
+                        based on the "resource_type" field value (soc2, cmmc, or iso).
+                     ============================================================ -->
+
+                <form id="resourceForm" class="email-form" onsubmit="event.preventDefault(); handleResourceSubmit();">
+                    <input type="email" id="captureEmail" placeholder="your@email.com" required>
+                    <input type="hidden" id="resourceType" value="">
+                    <button type="submit">Send Me the Checklist</button>
+                </form>
+                <div id="resourceSuccess" class="success-message" style="display: none;">
+                    <h3>Check Your Inbox!</h3>
+                    <p>Your <span id="successResourceName"></span> is on its way. While you wait, feel free to explore our services or reach out directly.</p>
+                </div>
+            </div>
+
+            <div class="contact-direct">
+                <div class="contact-info">
+                    <h3>Direct Contact</h3>
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Email Us</p>
+                        <a href="mailto:consulting@divin3tech.com" style="border-bottom: 1px solid var(--gold);"><span class="__cf_email__" data-cfemail="fc9f9392889d9f88bc98958a9592cf88999f94d29f9391">consulting@divin3tech.com</span></a>
+                    </div>
+                    <div class="contact-info-item">
+                        <p class="contact-info-label">Call Us</p>
+                        <a href="tel:7703333333">770-333-3333</a>
+                    </div>
                     <div>
-                        <p style="color: var(--sage); font-size: 0.9rem; text-transform: uppercase; margin-bottom: 1rem;">Follow Us</p>
+                        <p class="contact-info-label" style="margin-bottom: 1rem;">Follow Us</p>
                         <a href="https://www.linkedin.com/company/divin3tech" target="_blank" style="display: inline-block;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -1118,29 +1170,93 @@
                         </a>
                     </div>
                 </div>
-
-                <div id="form-container">
-                    <form id="contactForm" onsubmit="event.preventDefault(); showSuccess();" style="display: grid; gap: 1.5rem;">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                            <input type="text" placeholder="Name" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; font-family: 'DM Sans', sans-serif;">
-                            <input type="email" placeholder="Email" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; font-family: 'DM Sans', sans-serif;">
-                        </div>
-                        <textarea placeholder="Your Message" rows="6" required style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; color: white; font-family: 'DM Sans', sans-serif;"></textarea>
-                        <button type="submit" style="background: var(--gold); color: var(--midnight); padding: 1.2rem; border: none; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;">Send Message</button>
-                    </form>
-
-                    <div id="successMessage" style="display: none; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--gold); padding: 3rem; text-align: center; border-radius: 2px;">
-                        <h3 style="color: var(--gold); margin-bottom: 1rem;">Message Sent Successfully!</h3>
-                        <p>Thank you for reaching out. A member of the Divin3 Tech team will contact you shortly.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <script>
-    function showSuccess() {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('successMessage').style.display = 'block';
-    }
-    </script>
+    <!-- HubSpot Forms Embed (uncomment when ready) -->
+    <!-- <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script> -->
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile nav — close when link clicked
+        document.querySelectorAll('.nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+
+        // Resource selection
+        var selectedResource = '';
+        var resourceNames = {
+            soc2: 'SOC 2 Readiness Checklist',
+            cmmc: 'CMMC Self-Assessment Guide',
+            iso: 'ISO 27001 Gap Assessment Checklist'
+        };
+
+        function selectResource(card, type) {
+            // Remove selection from all cards
+            document.querySelectorAll('.resource-card').forEach(function(c) {
+                c.classList.remove('selected');
+            });
+            // Select this card
+            card.classList.add('selected');
+            selectedResource = type;
+
+            // Show email capture
+            document.getElementById('emailCapture').style.display = 'block';
+            document.getElementById('selectedResourceName').textContent = resourceNames[type];
+            document.getElementById('resourceType').value = type;
+
+            // Smooth scroll to email form
+            document.getElementById('emailCapture').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function handleResourceSubmit() {
+            var email = document.getElementById('captureEmail').value;
+            var resource = document.getElementById('resourceType').value;
+
+            // ============================================================
+            // HUBSPOT SUBMISSION
+            // Uncomment below and replace YOUR_PORTAL_ID / YOUR_FORM_ID
+            // ============================================================
+            // submitToHubSpot(email, resource);
+
+            // Show success (remove this line once HubSpot is connected and handling the redirect)
+            showResourceSuccess();
+        }
+
+        function showResourceSuccess() {
+            document.getElementById('resourceForm').style.display = 'none';
+            document.getElementById('resourceSuccess').style.display = 'block';
+            document.getElementById('successResourceName').textContent = resourceNames[selectedResource];
+        }
+
+        // HubSpot Forms API Submission (uncomment when ready)
+        /*
+        function submitToHubSpot(email, resource) {
+            var portalId = 'YOUR_PORTAL_ID';
+            var formId = 'YOUR_FORM_ID';
+            var url = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId;
+
+            var data = {
+                fields: [
+                    { name: 'email', value: email },
+                    { name: 'resource_type', value: resource }
+                ],
+                context: {
+                    pageUri: window.location.href,
+                    pageName: document.title
+                }
+            };
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(function(response) { return response.json(); })
+            .then(function(result) {
+                console.log('HubSpot submission successful:', result);
+                showResourceSuccess();
+            })
+          
